@@ -2,6 +2,7 @@
 using APISenaiSCS.Domains;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -81,7 +82,7 @@ namespace APISenaiSCS.Controllers
             await _context.SaveChangesAsync();
 
             // Removendo Arquivo do servidor
-            Upload.RemoverArquivo(ca.Imagem);
+           // Upload.RemoverArquivo(campanha.Imagem);
 
             return NoContent();
         }
