@@ -9,7 +9,7 @@ namespace APISenaiSCS.Interface
     public class IUsuarioRepository
     {
 
-        //Usuario Login(string NIF, string senha);
+        Usuario Login(string NIF, string senha);
 
     }
 }

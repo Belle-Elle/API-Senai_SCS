@@ -47,7 +47,7 @@ namespace APISenaiSCS.Controllers
 
             #region Upload da Imagem com extensões permitidas apenas
             string[] extensoesPermitidas = { "jpg", "png", "jpeg", "gif" };
-            string uploadResultado = Upload.UploadFile(arquivo, extensoesPermitidas);
+           string uploadResultado = Upload.UploadFile(arquivo, extensoesPermitidas);
 
             if (uploadResultado == "")
             {
@@ -59,7 +59,7 @@ namespace APISenaiSCS.Controllers
                 return BadRequest("Extensão de arquivo não permitida");
             }
 
-            campanha.Imagem = uploadResultado;
+             campanha.Imagem = uploadResultado;
             #endregion
 
 
@@ -82,7 +82,7 @@ namespace APISenaiSCS.Controllers
             await _context.SaveChangesAsync();
 
             // Removendo Arquivo do servidor
-           // Upload.RemoverArquivo(campanha.Imagem);
+            Upload.RemoverArquivo(campanha.Imagem);
 
             return NoContent();
         }

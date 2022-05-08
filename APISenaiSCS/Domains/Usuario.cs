@@ -9,7 +9,7 @@ namespace APISenaiSCS.Domains
     {
 
         public int Id { get; set; }
-        public int NIF { get; set; }
+        public string NIF { get; set; }
         public string Senha { get; set; }
         
 

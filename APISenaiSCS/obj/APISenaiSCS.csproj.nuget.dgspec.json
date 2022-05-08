@@ -1,32 +1,32 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\40263753824.INFOSCS\\Desktop\\API-Senai_SCS\\APISenaiSCS\\APISenaiSCS.csproj": {}
+    "C:\\Users\\Desktop\\OneDrive - SESISENAISP - Escolas\\Área de Trabalho\\API-Senai_SCS\\APISenaiSCS\\APISenaiSCS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\40263753824.INFOSCS\\Desktop\\API-Senai_SCS\\APISenaiSCS\\APISenaiSCS.csproj": {
+    "C:\\Users\\Desktop\\OneDrive - SESISENAISP - Escolas\\Área de Trabalho\\API-Senai_SCS\\APISenaiSCS\\APISenaiSCS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\40263753824.INFOSCS\\Desktop\\API-Senai_SCS\\APISenaiSCS\\APISenaiSCS.csproj",
+        "projectUniqueName": "C:\\Users\\Desktop\\OneDrive - SESISENAISP - Escolas\\Área de Trabalho\\API-Senai_SCS\\APISenaiSCS\\APISenaiSCS.csproj",
         "projectName": "APISenaiSCS",
-        "projectPath": "C:\\Users\\40263753824.INFOSCS\\Desktop\\API-Senai_SCS\\APISenaiSCS\\APISenaiSCS.csproj",
-        "packagesPath": "C:\\Users\\40263753824.INFOSCS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\40263753824.INFOSCS\\Desktop\\API-Senai_SCS\\APISenaiSCS\\obj\\",
+        "projectPath": "C:\\Users\\Desktop\\OneDrive - SESISENAISP - Escolas\\Área de Trabalho\\API-Senai_SCS\\APISenaiSCS\\APISenaiSCS.csproj",
+        "packagesPath": "C:\\Users\\Desktop\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Desktop\\OneDrive - SESISENAISP - Escolas\\Área de Trabalho\\API-Senai_SCS\\APISenaiSCS\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\40263753824.INFOSCS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Desktop\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.1"
+          "net5.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
+          "net5.0": {
+            "targetAlias": "net5.0",
             "projectReferences": {}
           }
         },
@@ -37,10 +37,32 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
+        "net5.0": {
+          "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[5.0.15, )"
+            },
+            "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
+              "target": "Package",
+              "version": "[5.0.15, )"
+            },
             "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.15, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.15, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer.Design": {
+              "target": "Package",
+              "version": "[1.1.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.15, )"
             },
@@ -51,10 +73,6 @@
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.3, )"
-            },
-            "System.IdentityModel.Tokens.Jwt": {
-              "target": "Package",
-              "version": "[5.1.5, )"
             }
           },
           "imports": [
@@ -75,7 +93,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.406\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

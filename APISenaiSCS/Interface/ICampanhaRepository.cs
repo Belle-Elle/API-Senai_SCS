@@ -9,10 +9,10 @@ namespace APISenaiSCS.Interface
     public class ICampanhaRepository
     {
 
-       // Campanhas Cadastrar(Campanhas campanha);
-        //Campanhas Alterar(Campanhas campanha);
-       // void Excluir(Campanhas campanha);
-       // IEnumerable<Campanhas> Listar();
+        Campanhas Cadastrar(Campanhas campanha);
+        Campanhas Alterar(Campanhas campanha);
+        void Excluir(Campanhas campanha);
+       IEnumerable<Campanhas> Listar();
 
 
     }
