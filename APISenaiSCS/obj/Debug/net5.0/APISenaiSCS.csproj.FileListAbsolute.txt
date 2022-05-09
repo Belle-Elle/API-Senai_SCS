@@ -1,0 +1,7 @@
+C:\Users\40263753824.INFOSCS\Desktop\API-Senai_SCS\APISenaiSCS\obj\Debug\net5.0\APISenaiSCS.csproj.AssemblyReference.cache
+C:\Users\40263753824.INFOSCS\Desktop\API-Senai_SCS\APISenaiSCS\obj\Debug\net5.0\APISenaiSCS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\40263753824.INFOSCS\Desktop\API-Senai_SCS\APISenaiSCS\obj\Debug\net5.0\APISenaiSCS.AssemblyInfoInputs.cache
+C:\Users\40263753824.INFOSCS\Desktop\API-Senai_SCS\APISenaiSCS\obj\Debug\net5.0\APISenaiSCS.AssemblyInfo.cs
+C:\Users\40263753824.INFOSCS\Desktop\API-Senai_SCS\APISenaiSCS\obj\Debug\net5.0\APISenaiSCS.csproj.CoreCompileInputs.cache
+C:\Users\40263753824.INFOSCS\Desktop\API-Senai_SCS\APISenaiSCS\obj\Debug\net5.0\APISenaiSCS.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\40263753824.INFOSCS\Desktop\API-Senai_SCS\APISenaiSCS\obj\Debug\net5.0\APISenaiSCS.MvcApplicationPartsAssemblyInfo.cache

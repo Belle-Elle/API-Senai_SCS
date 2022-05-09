@@ -2,14 +2,12 @@
 using APISenaiSCS.Domains;
 using APISenaiSCS.Interface;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace APISenaiSCS.Repositories
 {
-    public class CampanhaRepository : ICampanhaRepository 
+    public class CampanhaRepository : ICampanhaRepository
     {
         private readonly HotspotContext ctx;
 
@@ -18,34 +16,40 @@ namespace APISenaiSCS.Repositories
             ctx = appContext;
         }
 
-        public Campanhas Alterar(Campanhas equipamento)
+        public void Atualizar(int IdCampanhas, Campanhas campanhaAtualizada)
         {
-            ctx.Entry(equipamento).State = EntityState.Modified;
-            ctx.SaveChangesAsync();
-            return equipamento;
+            Campanhas campanhaBuscada = ctx.Campanhas.Find(IdCampanhas);
+
+
+            campanhaBuscada.Imagem = campanhaAtualizada.Imagem;
+       
+
+            ctx.Campanhas.Update(campanhaBuscada);
+            ctx.SaveChanges();
         }
 
-        public Campanhas Cadastrar(Campanhas campanha)
+        public Campanhas BuscarPorId(int IdCampanhas)
         {
-            ctx.Campanhas.Add(campanha);
-            ctx.SaveChangesAsync();
-
-            return campanha;
+            throw new System.NotImplementedException();
         }
 
-        public void Excluir(Campanhas campanha)
-            
+        public void Cadastrar(Campanhas novaCampanha)
         {
-            ctx.Campanhas.Remove(campanha);
-            ctx.SaveChangesAsync();
+            ctx.Campanhas.Add(novaCampanha);
+
+            ctx.SaveChanges();
         }
 
-        public IEnumerable<Campanhas> Listar()
+        public void Deletar(int IdCampanhas)
+        {
+            ctx.Campanhas.Remove(BuscarPorId(IdCampanhas));
+
+            ctx.SaveChanges();
+        }
+
+        public List<Campanhas> Listar()
         {
             return ctx.Campanhas.ToList();
         }
-
-
-
     }
 }

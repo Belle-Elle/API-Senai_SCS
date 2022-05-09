@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace APISenaiSCS.Domains
 {
-    public class Campanhas
+    public partial class Campanhas
     {
 
         [Key]
-        public int Id { get; set; }
+        public int IdCampanhas { get; set; }
         public string Imagem { get; set; }
         
     }

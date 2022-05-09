@@ -1,9 +1,10 @@
-﻿using APISenaiSCS.Domains;
-using APISenaiSCS.Interface;
-using APISenaiSCS.ViewModels;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
+using APISenaiSCS.Domains;
+using APISenaiSCS.Interface;
+using APISenaiSCS.Repositories;
+using APISenaiSCS.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
@@ -22,14 +23,13 @@ namespace APISenaiSCS.Controllers
     [ApiController]
     public class LoginController : ControllerBase
     {
-      private readonly IUsuarioRepository _usuarioRepository;
+        private IUsuarioRepository _usuarioRepository { get; set; }
 
-        public LoginController(IUsuarioRepository contexto)
+        public LoginController()
         {
-            _usuarioRepository = contexto;
+            _usuarioRepository = new UsuarioRepository();
         }
 
-       
         [HttpPost]
         public IActionResult Login(LoginViewModel login)
         {
@@ -39,10 +39,10 @@ namespace APISenaiSCS.Controllers
 
                 if (usuarioBuscado == null)
                 {
-                    return StatusCode(401, "E-mail ou senha inválidos!");
+                    return StatusCode(401, "NIF ou senha inválidos!");
                 }
 
-                // Caso o usuário seja encontrado, prossegue para a criação do token
+              //Caso o usuário seja encontrado, prossegue para a criação do token
 
                 /*
                     Dependências
@@ -52,15 +52,12 @@ namespace APISenaiSCS.Controllers
 
                 var minhasClaims = new[]
                 {
-                   
                     new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado.Id.ToString()),
-                    
-
                     // armazena na Claim personalizada role o tipo de usuário que está logado
                     new Claim("role", usuarioBuscado.Id.ToString()),
 
                     // Armazena na Claim o nome do usuário que foi autenticado
-                   // new Claim(JwtRegisteredClaimNames.Name, usuarioBuscado.NomeUsuario)
+                    // new Claim(JwtRegisteredClaimNames.Name, usuarioBuscado.NomeUsuario)
 
 
                 };
@@ -72,7 +69,7 @@ namespace APISenaiSCS.Controllers
                 var meuToken = new JwtSecurityToken(
                         issuer: "",
                         audience: "",
-                        claims: minhasClaims,
+                       // claims: minhasClaims,
                         expires: DateTime.Now.AddMinutes(30),
                         signingCredentials: creds
                     );

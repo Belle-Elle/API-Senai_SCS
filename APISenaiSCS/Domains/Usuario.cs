@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace APISenaiSCS.Domains
 {
-    public class Usuario
+    public partial class Usuario
     {
 
         public int Id { get; set; }
