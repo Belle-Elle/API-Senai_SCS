@@ -15,16 +15,12 @@ using System.Threading.Tasks;
 namespace APISenaiSCS.Controllers
 {
     [Produces("application/json")]
-
-    // Define que a rota de uma requisição será no formato domínio/api/NomeController
     [Route("api/[controller]")]
-
-    // Define que é um controlador de API
     [ApiController]
     public class LoginController : ControllerBase
     {
         private IUsuarioRepository _usuarioRepository { get; set; }
-
+         
         public LoginController()
         {
             _usuarioRepository = new UsuarioRepository();
@@ -42,23 +38,14 @@ namespace APISenaiSCS.Controllers
                     return StatusCode(401, "NIF ou senha inválidos!");
                 }
 
-              //Caso o usuário seja encontrado, prossegue para a criação do token
-
-                /*
-                    Dependências
-                    Criar e validar o JWT:      System.IdentityModel.Tokens.Jwt
-                    Integrar a autenticação:    Microsoft.AspNetCore.Authentication.JwtBearer (versão compatível com o .NET do projeto)
-                */
-
+               
                 var minhasClaims = new[]
                 {
                     new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado.Id.ToString()),
-                    // armazena na Claim personalizada role o tipo de usuário que está logado
+                    
                     new Claim("role", usuarioBuscado.Id.ToString()),
 
-                    // Armazena na Claim o nome do usuário que foi autenticado
-                    // new Claim(JwtRegisteredClaimNames.Name, usuarioBuscado.NomeUsuario)
-
+                   
 
                 };
 

@@ -15,11 +15,6 @@ namespace APISenaiSCS.Repositories
 
         private readonly HotspotContext ctx;
 
-        public UsuarioRepository(HotspotContext appContext)
-        {
-            ctx = appContext;
-        }
-
         public void Atualizar(int idUsuario, Usuario usuarioAtualizado)
         {
             Usuario usuarioBuscado = ctx.Usuarios.Find(idUsuario);
