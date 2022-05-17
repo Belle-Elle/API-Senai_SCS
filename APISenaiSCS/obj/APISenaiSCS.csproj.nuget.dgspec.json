@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Desktop\\OneDrive - SESISENAISP - Escolas\\Área de Trabalho\\API-Senai_SCS\\APISenaiSCS\\APISenaiSCS.csproj": {}
+    "C:\\Users\\40263753824.INFOSCS\\Desktop\\API-Senai_SCS\\APISenaiSCS\\APISenaiSCS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Desktop\\OneDrive - SESISENAISP - Escolas\\Área de Trabalho\\API-Senai_SCS\\APISenaiSCS\\APISenaiSCS.csproj": {
+    "C:\\Users\\40263753824.INFOSCS\\Desktop\\API-Senai_SCS\\APISenaiSCS\\APISenaiSCS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Desktop\\OneDrive - SESISENAISP - Escolas\\Área de Trabalho\\API-Senai_SCS\\APISenaiSCS\\APISenaiSCS.csproj",
+        "projectUniqueName": "C:\\Users\\40263753824.INFOSCS\\Desktop\\API-Senai_SCS\\APISenaiSCS\\APISenaiSCS.csproj",
         "projectName": "APISenaiSCS",
-        "projectPath": "C:\\Users\\Desktop\\OneDrive - SESISENAISP - Escolas\\Área de Trabalho\\API-Senai_SCS\\APISenaiSCS\\APISenaiSCS.csproj",
-        "packagesPath": "C:\\Users\\Desktop\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Desktop\\OneDrive - SESISENAISP - Escolas\\Área de Trabalho\\API-Senai_SCS\\APISenaiSCS\\obj\\",
+        "projectPath": "C:\\Users\\40263753824.INFOSCS\\Desktop\\API-Senai_SCS\\APISenaiSCS\\APISenaiSCS.csproj",
+        "packagesPath": "C:\\Users\\40263753824.INFOSCS\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\40263753824.INFOSCS\\Desktop\\API-Senai_SCS\\APISenaiSCS\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Desktop\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\40263753824.INFOSCS\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +40,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[5.0.5, )"
+            },
             "Microsoft.AspNetCore.Mvc.NewtonsoftJson": {
               "target": "Package",
               "version": "[5.0.15, )"
@@ -76,7 +80,7 @@
             },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
-              "version": "[5.6.0, )"
+              "version": "[6.11.0, )"
             }
           },
           "imports": [
@@ -97,7 +101,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

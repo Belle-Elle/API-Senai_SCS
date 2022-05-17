@@ -1,16 +1,13 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
 
 namespace APISenaiSCS
 {
@@ -49,7 +46,7 @@ namespace APISenaiSCS
                 // Set the comments path for the Swagger JSON and UI.
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-               /* c.IncludeXmlComments(xmlPath);*/
+                /* c.IncludeXmlComments(xmlPath);*/
             });
 
             services
@@ -57,10 +54,9 @@ namespace APISenaiSCS
                 {
                     options.DefaultAuthenticateScheme = "JwtBearer";
                     options.DefaultChallengeScheme = "JwtBearer";
-                });
-
-
-               /* .AddJwtBearer("JwtBearer", options =>
+                })
+                
+                .AddJwtBearer("JwtBearer", options =>
                 {
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
@@ -71,7 +67,7 @@ namespace APISenaiSCS
 
                         ValidateLifetime = true,
 
-                        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("FSWUHV654898vferger194SF#BFD14D@RFBHE4634SDV")),
+                        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("senai.HotspotSenai.webAPI.securitykey")),
 
                         ClockSkew = TimeSpan.FromMinutes(35),
 
@@ -80,7 +76,7 @@ namespace APISenaiSCS
                         ValidAudience = "senai.HotspotSenai.webAPI"
 
                     };
-                });*/
+                });
 
         }
 

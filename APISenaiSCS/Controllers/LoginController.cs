@@ -49,14 +49,14 @@ namespace APISenaiSCS.Controllers
 
                 };
 
-                var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(""));
+                var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("A"));
 
                 var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
                 var meuToken = new JwtSecurityToken(
-                        issuer: "",
-                        audience: "",
-                       // claims: minhasClaims,
+                        issuer: "senai.HotspotSenai.webAPI",
+                        audience: "senai.HotspotSenai.webAPI",
+                        claims: minhasClaims,
                         expires: DateTime.Now.AddMinutes(30),
                         signingCredentials: creds
                     );

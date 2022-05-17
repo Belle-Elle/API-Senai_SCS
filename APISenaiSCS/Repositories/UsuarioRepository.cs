@@ -61,7 +61,7 @@ namespace APISenaiSCS.Repositories
 
         public Usuario Login(string NIF, string senha)
         {
-            return ctx.Usuarios.FirstOrDefault(u => u.NIF == NIF && u.Senha == senha);
+            return ctx.Usuarios.FirstOrDefault(e => e.NIF == NIF && e.Senha == senha);
         }
     }
 }

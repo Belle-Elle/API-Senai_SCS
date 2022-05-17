@@ -141,3 +141,5 @@ C:\Users\Desktop\OneDrive - SESISENAISP - Escolas\Área de Trabalho\API-Senai_SC
 C:\Users\Desktop\OneDrive - SESISENAISP - Escolas\Área de Trabalho\API-Senai_SCS\APISenaiSCS\obj\Debug\net5.0\ref\APISenaiSCS.dll
 C:\Users\Desktop\OneDrive - SESISENAISP - Escolas\Área de Trabalho\API-Senai_SCS\APISenaiSCS\obj\Debug\net5.0\APISenaiSCS.pdb
 C:\Users\Desktop\OneDrive - SESISENAISP - Escolas\Área de Trabalho\API-Senai_SCS\APISenaiSCS\obj\Debug\net5.0\APISenaiSCS.genruntimeconfig.cache
+C:\Users\40263753824.INFOSCS\Desktop\API-Senai_SCS\APISenaiSCS\bin\Debug\net5.0\APISenaiSCS.StaticWebAssets.xml
+C:\Users\40263753824.INFOSCS\Desktop\API-Senai_SCS\APISenaiSCS\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
