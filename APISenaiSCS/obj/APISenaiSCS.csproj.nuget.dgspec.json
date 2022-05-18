@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\40263753824.INFOSCS\\Desktop\\API-Senai_SCS\\APISenaiSCS\\APISenaiSCS.csproj": {}
+    "C:\\Users\\Desktop\\OneDrive - SESISENAISP - Escolas\\Área de Trabalho\\API-Senai_SCS\\APISenaiSCS\\APISenaiSCS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\40263753824.INFOSCS\\Desktop\\API-Senai_SCS\\APISenaiSCS\\APISenaiSCS.csproj": {
+    "C:\\Users\\Desktop\\OneDrive - SESISENAISP - Escolas\\Área de Trabalho\\API-Senai_SCS\\APISenaiSCS\\APISenaiSCS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\40263753824.INFOSCS\\Desktop\\API-Senai_SCS\\APISenaiSCS\\APISenaiSCS.csproj",
+        "projectUniqueName": "C:\\Users\\Desktop\\OneDrive - SESISENAISP - Escolas\\Área de Trabalho\\API-Senai_SCS\\APISenaiSCS\\APISenaiSCS.csproj",
         "projectName": "APISenaiSCS",
-        "projectPath": "C:\\Users\\40263753824.INFOSCS\\Desktop\\API-Senai_SCS\\APISenaiSCS\\APISenaiSCS.csproj",
-        "packagesPath": "C:\\Users\\40263753824.INFOSCS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\40263753824.INFOSCS\\Desktop\\API-Senai_SCS\\APISenaiSCS\\obj\\",
+        "projectPath": "C:\\Users\\Desktop\\OneDrive - SESISENAISP - Escolas\\Área de Trabalho\\API-Senai_SCS\\APISenaiSCS\\APISenaiSCS.csproj",
+        "packagesPath": "C:\\Users\\Desktop\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Desktop\\OneDrive - SESISENAISP - Escolas\\Área de Trabalho\\API-Senai_SCS\\APISenaiSCS\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\40263753824.INFOSCS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Desktop\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -101,7 +101,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

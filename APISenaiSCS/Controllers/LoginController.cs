@@ -41,9 +41,14 @@ namespace APISenaiSCS.Controllers
                
                 var minhasClaims = new[]
                 {
-                    new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado.Id.ToString()),
+
+                    new Claim(JwtRegisteredClaimNames.Sub, usuarioBuscado.NIF),
+
+                    // new Claim(JwtRegisteredClaimNames., usuarioBuscado.NIF.ToString()),
+
+                     new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado.Id.ToString()),
                     
-                    new Claim("role", usuarioBuscado.Id.ToString()),
+                     new Claim("role", usuarioBuscado.Id.ToString()),
 
                    
 
