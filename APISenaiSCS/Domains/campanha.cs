@@ -5,10 +5,9 @@ using System.Collections.Generic;
 
 namespace APISenaiSCS.Domains
 {
-    public partial class usuario
+    public partial class campanha
     {
         public int id { get; set; }
-        public string NIF { get; set; }
-        public string senha { get; set; }
+        public string imagem { get; set; }
     }
 }

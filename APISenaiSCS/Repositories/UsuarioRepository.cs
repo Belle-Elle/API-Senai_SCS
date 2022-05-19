@@ -1,67 +1,61 @@
-﻿using Microsoft.EntityFrameworkCore;
-using APISenaiSCS.Context;
+﻿using APISenaiSCS.Contexts;
 using APISenaiSCS.Domains;
 using APISenaiSCS.Interface;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-
 
 namespace APISenaiSCS.Repositories
 {
     public class UsuarioRepository : IUsuarioRepository
     {
 
-        private readonly HotspotContext ctx;
+        APISnaiSCSContext ctx = new APISnaiSCSContext();
 
-        public void Atualizar(int idUsuario, Usuario usuarioAtualizado)
+        public void Atualizar(int idUsuario, usuario usuarioAtualizado)
         {
-            Usuario usuarioBuscado = ctx.Usuarios.Find(idUsuario);
+            usuario usuarioBuscado = ctx.usuarios.Find(idUsuario);
 
 
-            usuarioBuscado.Senha = usuarioAtualizado.Senha;
+            usuarioBuscado.senha = usuarioAtualizado.senha;
 
-            ctx.Usuarios.Update(usuarioBuscado);
+            ctx.usuarios.Update(usuarioBuscado);
             ctx.SaveChanges();
 
         }
 
-        public Usuario BuscarPorId(int idUsuario)
+        public usuario BuscarPorId(int idUsuario)
         {
-            return ctx.Usuarios
-                .Select(u => new Usuario()
+            return ctx.usuarios
+                .Select(u => new usuario()
                 {
-                    Id = u.Id,
+                    id = u.id,
                     NIF = u.NIF,
-                    
-                   
                 })
-                .FirstOrDefault(u => u.Id == idUsuario);
+                .FirstOrDefault(u => u.id == idUsuario);
         }
 
-        public void Cadastrar(Usuario novoUsuario)
+        public void Cadastrar(usuario novoUsuario)
         {
-            ctx.Usuarios.Add(novoUsuario);
+            ctx.usuarios.Add(novoUsuario);
 
             ctx.SaveChanges();
         }
 
         public void Deletar(int idUsuario)
         {
-            ctx.Usuarios.Remove(BuscarPorId(idUsuario));
+            ctx.usuarios.Remove(BuscarPorId(idUsuario));
 
             ctx.SaveChanges();
         }
 
-        public List<Usuario> Listar()
+        public List<usuario> Listar()
         {
-            return ctx.Usuarios.ToList();
+            return ctx.usuarios.ToList();
         }
 
-        public Usuario Login(string NIF, string senha)
+        public usuario Login(string NIF, string senha)
         {
-            return ctx.Usuarios.FirstOrDefault(e => e.NIF == NIF && e.Senha == senha);
+            return ctx.usuarios.FirstOrDefault(e => e.NIF == NIF && e.senha == senha);
         }
     }
 }

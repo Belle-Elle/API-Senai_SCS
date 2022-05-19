@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace APISenaiSCS.ViewModels
 {
@@ -13,7 +9,7 @@ namespace APISenaiSCS.ViewModels
         public string NIF { get; set; }
 
         [Required(ErrorMessage = "Informe a senha do usuário!")]
-        public string Senha { get; set; }
+        public string senha { get; set; }
 
     }
 }

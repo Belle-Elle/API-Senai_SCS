@@ -1,7 +1,6 @@
-﻿using APISenaiSCS.Context;
+﻿using APISenaiSCS.Contexts;
 using APISenaiSCS.Domains;
 using APISenaiSCS.Interface;
-using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -9,47 +8,48 @@ namespace APISenaiSCS.Repositories
 {
     public class CampanhaRepository : ICampanhaRepository
     {
-        private readonly HotspotContext ctx;
+        APISnaiSCSContext ctx = new APISnaiSCSContext();
 
-        public CampanhaRepository(HotspotContext appContext)
+        public CampanhaRepository(APISnaiSCSContext appContext)
         {
             ctx = appContext;
         }
 
-        public void Atualizar(int IdCampanhas, Campanhas campanhaAtualizada)
+        public void Atualizar(int IdCampanhas, campanha campanhaAtualizada)
         {
-            Campanhas campanhaBuscada = ctx.Campanhas.Find(IdCampanhas);
+            campanha campanhaBuscada = ctx.campanhas.Find(IdCampanhas);
 
 
-            campanhaBuscada.Imagem = campanhaAtualizada.Imagem;
-       
+            campanhaBuscada.imagem = campanhaAtualizada.imagem;
 
-            ctx.Campanhas.Update(campanhaBuscada);
+
+            ctx.campanhas.Update(campanhaBuscada);
             ctx.SaveChanges();
         }
 
-        public Campanhas BuscarPorId(int IdCampanhas)
+        public campanha BuscarPorId(int idCampanhas)
         {
             throw new System.NotImplementedException();
         }
 
-        public void Cadastrar(Campanhas novaCampanha)
+        public void Cadastrar(campanha novaCampanha)
         {
-            ctx.Campanhas.Add(novaCampanha);
+            ctx.campanhas.Add(novaCampanha);
 
             ctx.SaveChanges();
         }
 
-        public void Deletar(int IdCampanhas)
+        public void Deletar(int idCampanhas)
         {
-            ctx.Campanhas.Remove(BuscarPorId(IdCampanhas));
+            ctx.campanhas.Remove(BuscarPorId(idCampanhas));
 
             ctx.SaveChanges();
         }
 
-        public List<Campanhas> Listar()
+        public List<campanha> Listar()
         {
-            return ctx.Campanhas.ToList();
+            return ctx.campanhas.ToList();
         }
+
     }
 }

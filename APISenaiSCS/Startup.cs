@@ -67,13 +67,13 @@ namespace APISenaiSCS
 
                         ValidateLifetime = true,
 
-                        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("senai.HotspotSenai.webAPI.securitykey")),
+                        IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("APISenaiSCS-API-Projeto-Final")),
 
                         ClockSkew = TimeSpan.FromMinutes(35),
 
-                        ValidIssuer = "senai.HotspotSenai.webAPI",
+                        ValidIssuer = "APISenaiSCS",
 
-                        ValidAudience = "senai.HotspotSenai.webAPI"
+                        ValidAudience = "APISenaiSCS"
 
                     };
                 });
