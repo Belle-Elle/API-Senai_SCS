@@ -15,9 +15,9 @@ namespace APISenaiSCS.Repositories
             ctx = appContext;
         }
 
-        public void Atualizar(int IdCampanhas, campanha campanhaAtualizada)
+        public void Atualizar(int Id, campanha campanhaAtualizada)
         {
-            campanha campanhaBuscada = ctx.campanhas.Find(IdCampanhas);
+            campanha campanhaBuscada = ctx.campanhas.Find(Id);
 
 
             campanhaBuscada.imagem = campanhaAtualizada.imagem;
@@ -27,9 +27,9 @@ namespace APISenaiSCS.Repositories
             ctx.SaveChanges();
         }
 
-        public campanha BuscarPorId(int idCampanhas)
+        public campanha BuscarPorId(int id)
         {
-            throw new System.NotImplementedException();
+            return ctx.campanhas.FirstOrDefault(e => e.id == id);
         }
 
         public void Cadastrar(campanha novaCampanha)
@@ -39,9 +39,9 @@ namespace APISenaiSCS.Repositories
             ctx.SaveChanges();
         }
 
-        public void Deletar(int idCampanhas)
+        public void Deletar(int id)
         {
-            ctx.campanhas.Remove(BuscarPorId(idCampanhas));
+            ctx.campanhas.Remove(BuscarPorId(id));
 
             ctx.SaveChanges();
         }

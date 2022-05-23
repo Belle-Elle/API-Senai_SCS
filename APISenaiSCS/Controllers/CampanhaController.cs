@@ -1,44 +1,66 @@
 ﻿
 using APISenaiSCS.Contexts;
 using APISenaiSCS.Domains;
+using APISenaiSCS.Interface;
+using APISenaiSCS.Repositories;
 using APISenaiSCS.Utils;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace APISenaiSCS.Controllers
 {
+    [Produces("application/json")]
+    [Route("api/[controller]")]
+    [ApiController]
     public class CampanhaController : ControllerBase
     {
-        private readonly APISnaiSCSContext _context;
+        /// <summary>
+        /// Objeto _campanhaRepository que irá receber todos os métodos definidos na interface ICampanhasRepository
+        /// </summary>
+        private ICampanhaRepository _campanhaRepository { get; set; }
 
-        public CampanhaController(APISnaiSCSContext context)
+
+        public CampanhaController()
         {
-            _context = context;
+            _campanhaRepository = new CampanhaRepository();
         }
 
-
+        /// <summary>
+        /// Lista todos os eventos
+        /// </summary>
+        /// <returns>Uma lista de eventos e um status code 200 - Ok</returns>
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<campanha>>> GetCampanhas()
+        public IActionResult Get()
         {
-            return await _context.campanhas.ToListAsync();
+            try
+            {
+                // Retorna a resposta da requisição fazendo a chamada para o método
+                return Ok(_campanhaRepository.Listar());
+            }
+            catch (Exception erro)
+            {
+                return BadRequest(erro);
+            }
         }
 
         // GET: api/Campanhas/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<campanha>> GetCampanhas(int id)
+        public IActionResult GetById(int id)
         {
-            var campanha = await _context.campanhas.FindAsync(id);
-
-            if (campanha == null)
+            try
             {
-                return NotFound();
+                // Retora a resposta da requisição fazendo a chamada para o método
+                return Ok(_campanhaRepository.(id));
             }
-
-            return campanha;
-        }
+            catch (Exception erro)
+            {
+                return BadRequest(erro);
+            }
+        }}
 
 
         [HttpPost]
