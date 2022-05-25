@@ -26,7 +26,9 @@ namespace APISenaiSCS.Controllers
 
         public CampanhaController()
         {
+
             _campanhaRepository = new CampanhaRepository();
+
         }
 
         /// <summary>
@@ -53,14 +55,14 @@ namespace APISenaiSCS.Controllers
         {
             try
             {
-                // Retora a resposta da requisição fazendo a chamada para o método
-                return Ok(_campanhaRepository.(id));
+                return Ok(_campanhaRepository.BuscarPorId(id));
             }
             catch (Exception erro)
             {
                 return BadRequest(erro);
             }
-        }}
+        }
+        
 
 
         [HttpPost]
@@ -85,7 +87,7 @@ namespace APISenaiSCS.Controllers
             #endregion
 
 
-            _context.campanhas.Add(campanha);
+            _.campanhas.Add(campanha);
             await _context.SaveChangesAsync();
 
             return Created("Campanhas", campanha);
@@ -108,6 +110,6 @@ namespace APISenaiSCS.Controllers
 
             return NoContent();
         }
-
     }
 }
+

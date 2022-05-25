@@ -12,6 +12,12 @@ namespace APISenaiSCS.Interface
         /// <returns>Uma lista de Prontuarios</returns>
         List<campanha> Listar();
 
+        /// <summary>
+        /// Busca uma campanha através do ID
+        /// </summary>
+        /// <param name="id">ID da campanha que será buscada</param>
+        /// <returns>Uma campanha sera buscada</returns>
+        campanha BuscarPorId(int id);
 
         /// <summary>
         /// Cadastra um novo Usuario
