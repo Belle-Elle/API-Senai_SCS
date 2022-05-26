@@ -22,17 +22,12 @@ namespace APISenaiSCS.Controllers
 
         private readonly ICampanhaRepository ctx;
 
-        public CampanhaController(ICampanhaRepository appContext)
+      
+
+        public CampanhaController(ICampanhaRepository Context)
         {
-            ctx = appContext;
+            ctx = Context;
         }
-
-
-
-
-
-
-
 
         /// <summary>
         /// Lista todos os eventos
@@ -69,36 +64,44 @@ namespace APISenaiSCS.Controllers
 
 
         [HttpPost]
-        public IActionResult PostCampanhas([FromForm] campanha campanha, IFormFile arquivo)
+        public IActionResult PostCampanhas([FromForm] campanha campanha, IFormFile file
+            )
         {
-            #region
-            string[] extensoesPermitidas = { "jpg", "png", "jpeg", "gif" };
-            string uploadResultado = Upload.UploadFile(arquivo, extensoesPermitidas);
 
-            try { 
-            if (uploadResultado == "")
+
+            try
             {
-                return BadRequest("Arquivo não encontrado");
-            }
+                #region Upload da Imagem com extensões permitidas apenas
+                if (file == null)
+                    return BadRequest("É necessário enviar um arquivo de imagem válido!");
 
-            if (uploadResultado == "Extensão não permitida")
-            {
-                return BadRequest("Extensão de arquivo não permitida");
-            }
+                string[] AllowedExtensions = { "jpg", "png", "jpeg", "gif" };
+                string UploadResult = Upload.UploadFile(file, AllowedExtensions);
 
-            campanha.imagem = uploadResultado;
+                if (UploadResult == "")
+                {
+                    return BadRequest("Arquivo não encontrado");
+                }
+
+                if (UploadResult == "Extensão não permitida")
+                {
+                    return BadRequest("Extensão de arquivo não permitida");
+                }
+
+                campanha.imagem = UploadResult;
                 #endregion
 
                 ctx.Cadastrar(campanha);
-                //wait ctx.SaveChangesAsync();
 
-                return Created("Campanhas", campanha);
+                return Created("Campanha", campanha);
             }
+
             catch (Exception error)
             {
                 BadRequest(error);
                 throw;
             }
+
         }
 
        

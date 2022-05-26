@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace APISenaiSCS.Interface
 {
-    interface ICampanhaRepository
+    public interface ICampanhaRepository
     {
 
         /// <summary>

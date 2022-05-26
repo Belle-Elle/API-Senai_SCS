@@ -17,16 +17,16 @@ namespace APISenaiSCS.Utils
         /// <param name="arquivo">Arquivo vindo de um formulário</param>
         /// <param name="extensoesPermitidas">Array com extensões permitidas apenas</param>
         /// <returns>Nome do arquivo salvo</returns>
-        public static string UploadFile(IFormFile arquivo, string[] extensoesPermitidas)
+        public static string UploadFile(IFormFile file, string[] extensoesPermitidas)
         {
             try
             {
                 var pasta = Path.Combine("StaticFiles", "Images");
                 var caminho = Path.Combine(Directory.GetCurrentDirectory(), pasta);
 
-                if (arquivo.Length > 0)
+                if (file.Length > 0)
                 {
-                    var fileName = ContentDispositionHeaderValue.Parse(arquivo.ContentDisposition).FileName.Trim('"');
+                    var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
 
                     if (ValidarExtensao(extensoesPermitidas, fileName))
                     {
@@ -36,7 +36,7 @@ namespace APISenaiSCS.Utils
 
                         using (var stream = new FileStream(caminhoCompleto, FileMode.Create))
                         {
-                            arquivo.CopyTo(stream);
+                            file.CopyTo(stream);
                         }
 
                         return novoNome;
