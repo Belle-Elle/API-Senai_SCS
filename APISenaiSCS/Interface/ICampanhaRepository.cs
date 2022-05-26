@@ -1,4 +1,5 @@
 ﻿using APISenaiSCS.Domains;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace APISenaiSCS.Interface
@@ -23,7 +24,7 @@ namespace APISenaiSCS.Interface
         /// Cadastra um novo Usuario
         /// </summary>
         /// <param name="novoUsuario">Objeto novoUsuario com os dados que serão cadastrados</param>
-        void Cadastrar(campanha novaCampanha);
+        campanha Cadastrar(campanha novaCampanha);
 
         /// <summary>
         /// Atualiza um Prontuario existente

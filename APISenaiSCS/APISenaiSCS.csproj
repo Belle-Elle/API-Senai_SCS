@@ -28,6 +28,7 @@
 
   <ItemGroup>
     <Folder Include="Contexts\" />
+    <Folder Include="StaticFiles\Images\" />
   </ItemGroup>
 
 </Project>

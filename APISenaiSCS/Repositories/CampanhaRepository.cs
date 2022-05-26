@@ -3,12 +3,13 @@ using APISenaiSCS.Domains;
 using APISenaiSCS.Interface;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace APISenaiSCS.Repositories
 {
     public class CampanhaRepository : ICampanhaRepository
     {
-        APISnaiSCSContext ctx = new APISnaiSCSContext();
+       private readonly APISnaiSCSContext ctx;
 
         public CampanhaRepository(APISnaiSCSContext appContext)
         {
@@ -32,11 +33,13 @@ namespace APISenaiSCS.Repositories
             return ctx.campanhas.FirstOrDefault(e => e.id == id);
         }
 
-        public void Cadastrar(campanha novaCampanha)
+        public campanha Cadastrar(campanha novaCampanha)
         {
             ctx.campanhas.Add(novaCampanha);
+            ctx.SaveChangesAsync();
+            return novaCampanha;
+            
 
-            ctx.SaveChanges();
         }
 
         public void Deletar(int id)

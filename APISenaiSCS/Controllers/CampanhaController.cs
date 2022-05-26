@@ -1,15 +1,12 @@
-﻿
-using APISenaiSCS.Contexts;
-using APISenaiSCS.Domains;
+﻿using APISenaiSCS.Domains;
 using APISenaiSCS.Interface;
-using APISenaiSCS.Repositories;
 using APISenaiSCS.Utils;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
+using APISenaiSCS.Contexts;
+using APISenaiSCS.Repositories;
 
 namespace APISenaiSCS.Controllers
 {
@@ -21,15 +18,21 @@ namespace APISenaiSCS.Controllers
         /// <summary>
         /// Objeto _campanhaRepository que irá receber todos os métodos definidos na interface ICampanhasRepository
         /// </summary>
-        private ICampanhaRepository _campanhaRepository { get; set; }
 
 
-        public CampanhaController()
+        private readonly ICampanhaRepository ctx;
+
+        public CampanhaController(ICampanhaRepository appContext)
         {
-
-            _campanhaRepository = new CampanhaRepository();
-
+            ctx = appContext;
         }
+
+
+
+
+
+
+
 
         /// <summary>
         /// Lista todos os eventos
@@ -41,7 +44,7 @@ namespace APISenaiSCS.Controllers
             try
             {
                 // Retorna a resposta da requisição fazendo a chamada para o método
-                return Ok(_campanhaRepository.Listar());
+                return Ok(ctx.Listar());
             }
             catch (Exception erro)
             {
@@ -55,7 +58,7 @@ namespace APISenaiSCS.Controllers
         {
             try
             {
-                return Ok(_campanhaRepository.BuscarPorId(id));
+                return Ok(ctx.BuscarPorId(id));
             }
             catch (Exception erro)
             {
@@ -66,13 +69,13 @@ namespace APISenaiSCS.Controllers
 
 
         [HttpPost]
-        public async Task<ActionResult<campanha>> PostCampanhas([FromForm] campanha campanha, IFormFile arquivo)
+        public IActionResult PostCampanhas([FromForm] campanha campanha, IFormFile arquivo)
         {
-
-            #region Upload da Imagem com extensões permitidas apenas
+            #region
             string[] extensoesPermitidas = { "jpg", "png", "jpeg", "gif" };
             string uploadResultado = Upload.UploadFile(arquivo, extensoesPermitidas);
 
+            try { 
             if (uploadResultado == "")
             {
                 return BadRequest("Arquivo não encontrado");
@@ -84,32 +87,21 @@ namespace APISenaiSCS.Controllers
             }
 
             campanha.imagem = uploadResultado;
-            #endregion
+                #endregion
 
+                ctx.Cadastrar(campanha);
+                //wait ctx.SaveChangesAsync();
 
-            _.campanhas.Add(campanha);
-            await _context.SaveChangesAsync();
-
-            return Created("Campanhas", campanha);
-        }
-
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteCampanhas(int id)
-        {
-            var campanha = await _context.campanhas.FindAsync(id);
-            if (campanha == null)
-            {
-                return NotFound();
+                return Created("Campanhas", campanha);
             }
-
-            _context.campanhas.Remove(campanha);
-            await _context.SaveChangesAsync();
-
-            // Removendo Arquivo do servidor
-            Upload.RemoverArquivo(campanha.imagem);
-
-            return NoContent();
+            catch (Exception error)
+            {
+                BadRequest(error);
+                throw;
+            }
         }
+
+       
     }
 }
 
