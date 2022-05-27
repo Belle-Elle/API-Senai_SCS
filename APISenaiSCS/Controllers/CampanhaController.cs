@@ -18,17 +18,18 @@ namespace APISenaiSCS.Controllers
         /// <summary>
         /// Objeto _campanhaRepository que irá receber todos os métodos definidos na interface ICampanhasRepository
         /// </summary>
-
-
         private readonly ICampanhaRepository ctx;
 
-      
 
-        public CampanhaController(ICampanhaRepository Context)
+        //public CampanhaController(ICampanhaRepository appContext)
+        //{
+        //    ctx = appContext;
+        //}
+
+        public CampanhaController()
         {
-            ctx = Context;
+            ctx = new CampanhaRepository();
         }
-
         /// <summary>
         /// Lista todos os eventos
         /// </summary>
@@ -60,14 +61,12 @@ namespace APISenaiSCS.Controllers
                 return BadRequest(erro);
             }
         }
-        
+
 
 
         [HttpPost]
-        public IActionResult PostCampanhas([FromForm] campanha campanha, IFormFile file
-            )
+        public IActionResult PostCampanhas([FromForm] campanha campanha, IFormFile file)
         {
-
 
             try
             {
@@ -92,7 +91,6 @@ namespace APISenaiSCS.Controllers
                 #endregion
 
                 ctx.Cadastrar(campanha);
-
                 return Created("Campanha", campanha);
             }
 
@@ -104,7 +102,7 @@ namespace APISenaiSCS.Controllers
 
         }
 
-       
     }
+        
 }
 
