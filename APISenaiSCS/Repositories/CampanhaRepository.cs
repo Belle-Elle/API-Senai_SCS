@@ -9,50 +9,42 @@ namespace APISenaiSCS.Repositories
 {
     public class CampanhaRepository : ICampanhaRepository
     {
-       private readonly APISnaiSCSContext ctx;
+        CampanhaContext ctx = new CampanhaContext();
 
-        public CampanhaRepository(APISnaiSCSContext appContext)
+        public void Atualizar(int idCampanhas, Campanha campanhaAtualizada)
         {
-            ctx = appContext;
-        }
-
-        public void Atualizar(int Id, campanha campanhaAtualizada)
-        {
-            campanha campanhaBuscada = ctx.campanhas.Find(Id);
+            Campanha campanhaBuscada = ctx.Campanhas.Find(idCampanhas);
 
 
-            campanhaBuscada.imagem = campanhaAtualizada.imagem;
+            campanhaBuscada.Imagem = campanhaAtualizada.Imagem;
 
 
-            ctx.campanhas.Update(campanhaBuscada);
+            ctx.Campanhas.Update(campanhaBuscada);
             ctx.SaveChanges();
         }
 
-        public campanha BuscarPorId(int id)
+        public Campanha BuscarPorId(int idCampanhas)
         {
-            return ctx.campanhas.FirstOrDefault(e => e.id == id);
+            return ctx.Campanhas.FirstOrDefault(e => e.Id == idCampanhas);
         }
 
-        public campanha Cadastrar(campanha novaCampanha)
+        public Campanha Cadastrar(Campanha novaCampanha)
         {
-            ctx.campanhas.Add(novaCampanha);
+            ctx.Campanhas.Add(novaCampanha);
             ctx.SaveChangesAsync();
             return novaCampanha;
-            
-
         }
 
-        public void Deletar(int id)
+        public void Deletar(int idCampanhas)
         {
-            ctx.campanhas.Remove(BuscarPorId(id));
+            ctx.Campanhas.Remove(BuscarPorId(idCampanhas));
 
             ctx.SaveChanges();
         }
 
-        public List<campanha> Listar()
+        public List<Campanha> Listar()
         {
-            return ctx.campanhas.ToList();
+            return ctx.Campanhas.ToList();
         }
-
     }
 }

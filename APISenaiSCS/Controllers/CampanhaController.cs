@@ -18,7 +18,7 @@ namespace APISenaiSCS.Controllers
         /// <summary>
         /// Objeto _campanhaRepository que irá receber todos os métodos definidos na interface ICampanhasRepository
         /// </summary>
-        private readonly ICampanhaRepository ctx;
+        private ICampanhaRepository _campanhaRepository { get; set; }
 
 
         //public CampanhaController(ICampanhaRepository appContext)
@@ -28,7 +28,7 @@ namespace APISenaiSCS.Controllers
 
         public CampanhaController()
         {
-            ctx = new CampanhaRepository();
+           _campanhaRepository  = new CampanhaRepository();
         }
         /// <summary>
         /// Lista todos os eventos
@@ -40,7 +40,7 @@ namespace APISenaiSCS.Controllers
             try
             {
                 // Retorna a resposta da requisição fazendo a chamada para o método
-                return Ok(ctx.Listar());
+                return Ok(_campanhaRepository.Listar());
             }
             catch (Exception erro)
             {
@@ -54,7 +54,7 @@ namespace APISenaiSCS.Controllers
         {
             try
             {
-                return Ok(ctx.BuscarPorId(id));
+                return Ok(_campanhaRepository.BuscarPorId(id));
             }
             catch (Exception erro)
             {
@@ -65,7 +65,7 @@ namespace APISenaiSCS.Controllers
 
 
         [HttpPost]
-        public IActionResult PostCampanhas([FromForm] campanha campanha, IFormFile file)
+        public IActionResult PostCampanhas([FromForm] Campanha campanha, IFormFile file)
         {
 
             try
@@ -87,10 +87,10 @@ namespace APISenaiSCS.Controllers
                     return BadRequest("Extensão de arquivo não permitida");
                 }
 
-                campanha.imagem = UploadResult;
+                campanha.Imagem = UploadResult;
                 #endregion
 
-                ctx.Cadastrar(campanha);
+                _campanhaRepository.Cadastrar(campanha);
                 return Created("Campanha", campanha);
             }
 

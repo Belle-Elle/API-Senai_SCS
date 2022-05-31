@@ -14,7 +14,7 @@ namespace APISenaiSCS.Utils
         /// <summary>
         /// Faz o upload do arquivo para o servidor
         /// </summary>
-        /// <param name="arquivo">Arquivo vindo de um formulário</param>
+        /// <param name="file">Arquivo vindo de um formulário</param>
         /// <param name="extensoesPermitidas">Array com extensões permitidas apenas</param>
         /// <returns>Nome do arquivo salvo</returns>
         public static string UploadFile(IFormFile file, string[] extensoesPermitidas)

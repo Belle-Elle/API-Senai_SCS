@@ -8,54 +8,52 @@ namespace APISenaiSCS.Repositories
 {
     public class UsuarioRepository : IUsuarioRepository
     {
+        CampanhaContext ctx = new CampanhaContext();
 
-        APISnaiSCSContext ctx = new APISnaiSCSContext();
-
-        public void Atualizar(int idUsuario, usuario usuarioAtualizado)
+        public void Atualizar(int idUsuario, Usuario usuarioAtualizado)
         {
-            usuario usuarioBuscado = ctx.usuarios.Find(idUsuario);
+            Usuario usuarioBuscado = ctx.Usuarios.Find(idUsuario);
 
 
-            usuarioBuscado.senha = usuarioAtualizado.senha;
+            usuarioBuscado.Senha = usuarioAtualizado.Senha;
 
-            ctx.usuarios.Update(usuarioBuscado);
+            ctx.Usuarios.Update(usuarioBuscado);
             ctx.SaveChanges();
-
         }
 
-        public usuario BuscarPorId(int idUsuario)
+        public Usuario BuscarPorId(int idUsuario)
         {
-            return ctx.usuarios
-                .Select(u => new usuario()
-                {
-                    id = u.id,
-                    NIF = u.NIF,
-                })
-                .FirstOrDefault(u => u.id == idUsuario);
+                return ctx.Usuarios
+                 .Select(u => new Usuario()
+                 {
+                     Id = u.Id,
+                     Nif = u.Nif,
+                 })
+                 .FirstOrDefault(u => u.Id == idUsuario);
         }
 
-        public void Cadastrar(usuario novoUsuario)
+        public void Cadastrar(Usuario novoUsuario)
         {
-            ctx.usuarios.Add(novoUsuario);
+            ctx.Usuarios.Add(novoUsuario);
 
             ctx.SaveChanges();
         }
 
         public void Deletar(int idUsuario)
         {
-            ctx.usuarios.Remove(BuscarPorId(idUsuario));
+            ctx.Usuarios.Remove(BuscarPorId(idUsuario));
 
             ctx.SaveChanges();
         }
 
-        public List<usuario> Listar()
+        public List<Usuario> Listar()
         {
-            return ctx.usuarios.ToList();
+            return ctx.Usuarios.ToList();
         }
 
-        public usuario Login(string NIF, string senha)
+        public Usuario Login(string NIF, string senha)
         {
-            return ctx.usuarios.FirstOrDefault(e => e.NIF == NIF && e.senha == senha);
+            return ctx.Usuarios.FirstOrDefault(e => e.Nif == NIF && e.Senha == senha);
         }
     }
 }

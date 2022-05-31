@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 namespace APISenaiSCS.Domains
 {
-    public partial class campanha
+    public partial class Campanha
     {
-        public int id { get; set; }
-        public string imagem { get; set; }
+        public int Id { get; set; }
+        public string Imagem { get; set; }
     }
 }

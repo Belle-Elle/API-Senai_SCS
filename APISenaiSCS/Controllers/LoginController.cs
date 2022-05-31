@@ -28,7 +28,7 @@ namespace APISenaiSCS.Controllers
         {
             try
             {
-                usuario usuarioBuscado = _usuarioRepository.Login(login.NIF, login.senha);
+                Usuario usuarioBuscado = _usuarioRepository.Login(login.NIF, login.senha);
 
                 if (usuarioBuscado == null)
                 {
@@ -39,11 +39,11 @@ namespace APISenaiSCS.Controllers
                 var minhasClaims = new[]
                 {
 
-                    new Claim(JwtRegisteredClaimNames.Sub, usuarioBuscado.NIF),
+                    new Claim(JwtRegisteredClaimNames.Sub, usuarioBuscado.Nif),
 
                    //new Claim(JwtRegisteredClaimNames.Sub, usuarioBuscado.NIF.ToString()),
 
-                    new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado.id.ToString()),
+                    new Claim(JwtRegisteredClaimNames.Jti, usuarioBuscado.Id.ToString()),
 
                     //new Claim("role", usuarioBuscado.id.ToString()),
 
